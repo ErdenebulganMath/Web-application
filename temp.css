@@ -1,0 +1,245 @@
+
+body {
+    background-color: #501157;
+    color: #ddd;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header-bar {
+    height: 60px;
+    background: linear-gradient(to left, #5027a9,#8f68e3);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    color: white;
+    justify-content: space-between;
+    font-weight: 600;
+    border-bottom: 1px solid #444;
+}
+
+.btn-live {
+    background-color: #dc3545;
+    border: none;
+    font-weight: 600;
+    padding: 5px 20px;
+    border-radius: 20px;
+}
+
+.btn-quiz {
+    background-color: #5a5aee;
+    border: none;
+    font-weight: 600;
+    padding: 0.35rem 1rem;
+    margin-left: 0.5rem;
+}
+
+/* ====== PROGRESS BAR ====== */
+.progress-bar-custom {
+    height: 4px;
+    background: #5a5aee;
+    border-radius: 2px;
+    width: 6%;
+    transition: width 0.5s ease-in-out;
+}
+
+/* ====== VIDEO CONTAINER ====== */
+.video-container {
+    position: relative;
+    background: black;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.video-container div {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.tabs-container {
+  margin-top: 20px;
+  color: #ddd;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tabs-nav {
+  display: flex;
+  border-bottom: 2px solid #444;
+  margin-bottom: 12px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-weight: 600;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.tab-btn:hover {
+  color: #6272ff;
+}
+
+.tab-btn.active {
+  color: #6272ff;
+  border-bottom: 3px solid #6272ff;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+
+.materials-section {
+  margin-top: 20px;
+  color: #ddd;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.materials-section h4 {
+  margin-bottom: 12px;
+  color: white;
+}
+
+.materials-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.materials-list li {
+  display: flex;
+  align-items: center;
+  background: #2a2a3d;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+
+.material-icon {
+  font-size: 24px;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.material-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.material-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.material-size {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.download-link {
+  color: #6272ff;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: 20px;
+}
+
+.download-link:hover {
+  text-decoration: underline;
+}
+
+
+/* ====== SIDEBAR ====== */
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background: #fff;
+    color: #333;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Sidebar text */
+.sidebar .unit,
+.sidebar .lesson {
+    color: #333;
+}
+
+/* ====== UNIT ====== */
+.unit {
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 0.5rem 0.75rem;
+}
+
+.unit:hover {
+    background: #f1f5ff;
+}
+
+.unit.active {
+    background: #e7efff;
+    border-left: 4px solid #0d6efd;
+}
+
+/* Arrow */
+.arrow {
+    transition: 0.5s;
+}
+
+.unit.active .arrow {
+    transform: rotateX(180deg);
+    color: #0d6efd;
+}
+
+/* ====== LESSON ====== */
+.lesson {
+    padding: 0.4rem 0.75rem;
+    transition: 0.2s;
+}
+
+.lesson:hover {
+    background: #f5f5f5;
+}
+
+/* Badges */
+.lesson .badge {
+    font-size: 0.75rem;
+}
+
+/* ====== SCROLLBAR (OPTIONAL) ====== */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
