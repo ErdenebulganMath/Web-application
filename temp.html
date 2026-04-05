@@ -1,181 +1,295 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Online Course Player</title>
   <link rel="stylesheet" href="temp.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+
+
 </head>
 <body>
 
-  <!-- Header Bar -->
-  <div class="header-bar">
-    <div>
-      <a href="classes.html" class="text-white text-decoration-none">&larr; Буцах</a>
-      <span class="ms-3">Анхан шатны Алгебр</span>
+<!-- ── HEADER ── -->
+<header class="header">
+  <div class="header-left">
+    <a href="classes.html" class="back-btn">
+      <i class="bi bi-arrow-left"></i>
+      Буцах
+    </a>
+    <span class="course-title">Анхан шатны Алгебр</span>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-track">
+      <div class="progress-fill"></div>
+    </div>
+    <span class="progress-label">6% дууссан</span>
+  </div>
+</header>
+
+<!-- ── MAIN ── -->
+<div class="main">
+
+  <!-- VIDEO AREA -->
+  <div class="video-area">
+    <div class="video-wrap">
+      <video controls>
+        <source src="https://www.pexels.com/download/video/5146631/" type="video/mp4">
+      </video>
     </div>
 
-    <div class="d-flex align-items-center gap-2">
-      <div style="width: 150px; background: #333; border-radius: 10px; overflow: hidden;">
-        <div class="progress-bar-custom"></div>
-      </div>
-      <small class="text-white">6% complete</small>
-      <button class="btn btn-live"><i class="bi bi-broadcast"> </i>Join Live Class</button>
-      <button class="btn btn-quiz"><i class="bi bi-file-earmark-text"></i>Take Quiz</button>
+    <div class="lesson-meta">
+      <span class="lesson-tag">Хичээл 1 · Видео</span>
+      <h1 class="lesson-title">Алгебр гэж юу вэ?</h1>
+      <p class="lesson-desc">Алгебрийн үндсэн ойлголт, тэмдэглэгээ болон анхдагч математик харилцааг танилцуулна.</p>
     </div>
   </div>
 
-  <!-- Main Content -->
-  <div class="container-fluid h-100">
-    <div class="row h-100 gx-0">
-      
-      <!-- Video player section -->
-      <div class="col-md-9 p-3 d-flex flex-column">
-          <div style=" top: 10px; margin-bottom: 30px; left: 10px; background: rgba(0,0,0,0.6); color: #fff; padding: 6px 12px; border-radius: 6px; font-weight: 600;">
-            Хичээл 1: Алгебр гэж юу вэ? <br />
-            <small style="font-weight: 400;">Багш: С. Мөнх-Эрдэнэ</small>
-          </div>
-        <div class="video-container flex-grow-1" style="position: relative;">
-          <video id="videoPlayer" controls style="width: 100%; height: 100%; border-radius: 8px;" title="Алгебр гэж юу вэ?">
-            <source src="https://www.pexels.com/download/video/5146631/" type="video/mp4" />
-            Your browser does not support HTML5 video.
-          </video>
-        </div>
-
-        <div class="tabs-container">
-           <!-- Tab buttons -->
-          <div class="tabs-nav" role="tablist">
-            <button class="tab-btn active" data-tab="lessons" role="tab" aria-selected="true" aria-controls="lessons">Хичээлийн агуулга</button>
-            <button class="tab-btn" data-tab="materials" role="tab" aria-selected="false" aria-controls="materials">Хичээлийн материалууд</button>
-            <button class="tab-btn" data-tab="notes" role="tab" aria-selected="false" aria-controls="notes">Миний дэвтэр</button>
-          </div>
-
-          <div id="lessons" class="tab-content active" role="tabpanel" tabindex="0">
-            <ul>
-              <li>Хичээл 1: Алгебр гэж юу вэ?</li>
-              <li>Хичээл 2: Алгебрийн үндсэн элементүүд</li>
-              <li>Хичээл 3: Алгебр ба түүн дээр хийгдэх үйлдлүүд</li>
-            </ul>
-          </div>
-
-          <div id="materials" class="tab-content" role="tabpanel" tabindex="0">
-              <ul class="materials-list">
-              <li>
-                <div class="material-icon">📄</div>
-                <div class="material-info">
-                  <div class="material-title">Хичээлийн тэмдэглэл — Week1.pdf</div>
-                  <div class="material-size">2.4 MB</div>
-                </div>
-                <a href="files/course-notes-week1.pdf" download class="download-link">Download</a>
-              </li>
-              <li>
-                <div class="material-icon">📦</div>
-                <div class="material-info">
-                  <div class="material-title">Хичээлийн материал.zip</div>
-                  <div class="material-size">15.2 MB</div>
-                </div>
-                <a href="files/exercise-files.zip" download class="download-link">Download</a>
-              </li>
-     <!-- Repeat for other files -->
-            </ul>
-          </div>
-
-          <div id="notes" class="tab-content" role="tabpanel" tabindex="0">
-            <textarea placeholder="Write your notes here..." rows="8" style="width:100%; border-radius:6px; padding:10px;"></textarea>
-          </div>
-
-
-        </div>
-
-
-      </div>
-
-      <!-- Sidebar -->
-      <div class="col-md-3 sidebar">
-        <h5 class="p-3 border-bottom">Хичээлүүд</h5>
-
-        <!-- UNIT 1 -->
-        <div class="unit p-3 border-bottom" onclick="toggle(this)">
-          <div class="d-flex justify-content-between">
-            <div>
-              <small class="text-muted">Хичээл 1</small>
-              <div>Алгебр гэж юу вэ?</div>
-            </div>
-            <span class="fa-solid fa-chevron-down arrow"></span>
-          </div>
-
-          <div class="lessons mt-2 d-none">
-            <div class="lesson p-2 d-flex justify-content-between" role="button">
-              Видео хичээл <span class="badge bg-secondary">12:30</span>
-            </div>
-            <div class="lesson p-2 d-flex justify-content-between" role="button">
-              Дасгал ажил
-            </div>
-          </div>
-        </div>
-
-        <!-- UNIT 2 -->
-        <div class="unit p-3 border-bottom" onclick="toggle(this)">
-          <div class="d-flex justify-content-between">
-            <div>
-              <small class="text-muted">Хичээл</small>
-              <div>Алгебрийн үндсэн элементүүд</div>
-            </div>
-            <span class="fa-solid fa-chevron-down arrow"></span>
-          </div>
-
-          <div class="lessons mt-2 d-none">
-            <div class="lesson p-2 d-flex justify-content-between" role="button">Видео хичээл<span class="badge bg-secondary">25:30</span></div>
-            <div class="lesson p-2" role="button">Асуултууд</div>
-          </div>
-        </div>
-
-      </div>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h5>Хичээлийн жагсаалт</h5>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="sidebar-scroll">
 
-  <script>
-  function toggle(el) {
-    document.querySelectorAll(".unit").forEach(u => {
-      if (u !== el) {
-        u.classList.remove("active");
-        u.querySelector(".lessons").classList.add("d-none");
-      }
-    });
+      <!-- Unit 1 -->
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <div class="unit-info">
+          <small>Хичээл 1</small>
+          <div class="unit-name">Алгебр гэж юу вэ?</div>
+        </div>
+        <i class="bi bi-chevron-down unit-arrow"></i>
+      </div>
+      <div class="lessons open">
+        <div class="lesson-item active">
+          <i class="bi bi-play-circle-fill"></i>
+          Видео хичээл
+        </div>
+        <div class="lesson-item">
+          <i class="bi bi-pencil-square"></i>
+          Дасгал ажил
+        </div>
+      </div>
 
-    el.classList.toggle("active");
-    el.querySelector(".lessons").classList.toggle("d-none");
+      <!-- Unit 2 -->
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <div class="unit-info">
+          <small>Хичээл 2</small>
+          <div class="unit-name">Хувьсагч ба илэрхийлэл</div>
+        </div>
+        <i class="bi bi-chevron-down unit-arrow"></i>
+      </div>
+      <div class="lessons">
+        <div class="lesson-item">
+          <i class="bi bi-play-circle"></i>
+          Видео хичээл
+        </div>
+        <div class="lesson-item">
+          <i class="bi bi-pencil-square"></i>
+          Дасгал ажил
+        </div>
+      </div>
+
+      <!-- Unit 3 -->
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <div class="unit-info">
+          <small>Хичээл 3</small>
+          <div class="unit-name">Тэгшитгэл шийдвэрлэх</div>
+        </div>
+        <i class="bi bi-chevron-down unit-arrow"></i>
+      </div>
+      <div class="lessons">
+        <div class="lesson-item">
+          <i class="bi bi-play-circle"></i>
+          Видео хичээл
+        </div>
+        <div class="lesson-item">
+          <i class="bi bi-pencil-square"></i>
+          Дасгал ажил
+        </div>
+        <div class="lesson-item">
+          <i class="bi bi-file-earmark-check"></i>
+          Тест
+        </div>
+      </div>
+
+      <!-- NOTES -->
+      <div class="notes-section">
+        <div class="notes-toggle" onclick="toggleNotes()">
+          <div class="notes-toggle-left">
+            <button class="add-note-btn" onclick="createNote(); event.stopPropagation();" title="Шинэ тэмдэглэл">
+              <i class="bi bi-plus"></i>
+            </button>
+            <span>Тэмдэглэл</span>
+          </div>
+          <i class="bi bi-chevron-down notes-chevron" id="notesChevron"></i>
+        </div>
+
+        <div class="notes-list" id="notesList"></div>
+      </div>
+
+    </div>
+  </aside>
+</div>
+
+<script>
+  /* ── UNIT TOGGLE ── */
+  function toggleUnit(header) {
+    const lessons = header.nextElementSibling;
+    const isOpen = lessons.classList.contains('open');
+    lessons.classList.toggle('open', !isOpen);
+    header.classList.toggle('active', !isOpen);
   }
-  </script>
-  <script>
-  // Wait until DOM is loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
 
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const targetTab = button.getAttribute('data-tab');
+  /* ── NOTES ── */
+  let notes = JSON.parse(localStorage.getItem('cp_notes') || '[]');
+  let notesOpen = false;
 
-        // Remove all active classes and reset aria-selected
-        tabButtons.forEach(btn => {
-          btn.classList.remove('active');
-          btn.setAttribute('aria-selected', 'false');
-        });
-        tabContents.forEach(content => content.classList.remove('active'));
+  function saveNotes() {
+    localStorage.setItem('cp_notes', JSON.stringify(notes));
+  }
 
-        // Add active to clicked button and show corresponding tab content
-        button.classList.add('active');
-        button.setAttribute('aria-selected', 'true');
-        document.getElementById(targetTab).classList.add('active');
-      });
+  function toggleNotes() {
+    notesOpen = !notesOpen;
+    document.getElementById('notesList').classList.toggle('open', notesOpen);
+    document.getElementById('notesChevron').classList.toggle('open', notesOpen);
+    renderNotes();
+  }
+
+  function renderNotes() {
+    const list = document.getElementById('notesList');
+    list.innerHTML = '';
+
+    if (notes.length === 0) {
+      list.innerHTML = '<div class="notes-empty">Тэмдэглэл байхгүй байна</div>';
+      return;
+    }
+
+    notes.forEach((note, i) => {
+      const div = document.createElement('div');
+      div.className = 'note-item';
+      div.innerHTML = `
+        <span class="note-title">${escHtml(note.title)}</span>
+        <button class="note-delete" onclick="deleteNote(event,${i})" title="Устгах">
+          <i class="bi bi-trash3"></i>
+        </button>
+      `;
+      div.addEventListener('click', () => openNote(i));
+      list.appendChild(div);
     });
-  });
+  }
+
+  function escHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function createNote() {
+    const n = { title: 'Шинэ тэмдэглэл', content: '', created: Date.now() };
+    notes.unshift(n);
+    saveNotes();
+    if (!notesOpen) toggleNotes();
+    else renderNotes();
+    openNote(0);
+  }
+
+  function deleteNote(e, i) {
+    e.stopPropagation();
+    notes.splice(i, 1);
+    saveNotes();
+    renderNotes();
+  }
+
+  /* ── POPUP ── */
+  function openNote(i) {
+    const note = notes[i];
+    const existing = document.querySelectorAll('.note-popup');
+    // avoid duplicate
+    for (const p of existing) {
+      if (parseInt(p.dataset.index) === i) { p.style.zIndex = 10000; return; }
+    }
+
+    const popup = document.createElement('div');
+    popup.className = 'note-popup';
+    popup.dataset.index = i;
+
+    const d = new Date(note.created || Date.now());
+    const dateStr = d.toLocaleDateString('mn-MN', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+    popup.innerHTML = `
+      <div class="note-popup-header" onmousedown="dragStart(event, this.closest('.note-popup'))">
+        <input value="${escHtml(note.title)}" placeholder="Гарчиг...">
+        <div class="popup-actions">
+          <button class="popup-btn" onclick="togglePopupSize(this)" title="Томруулах">
+            <i class="bi bi-arrows-fullscreen"></i>
+          </button>
+          <button class="popup-btn" onclick="this.closest('.note-popup').remove()" title="Хаах">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+      </div>
+      <div class="note-popup-body">
+        <textarea placeholder="Тэмдэглэл бичих...">${escHtml(note.content)}</textarea>
+      </div>
+      <div class="note-popup-footer">${dateStr}</div>
+    `;
+
+    document.body.appendChild(popup);
+
+    popup.querySelector('input').addEventListener('input', e => {
+      notes[i].title = e.target.value;
+      saveNotes();
+      renderNotes();
+    });
+
+    popup.querySelector('textarea').addEventListener('input', e => {
+      notes[i].content = e.target.value;
+      saveNotes();
+    });
+  }
+
+  function togglePopupSize(btn) {
+    btn.closest('.note-popup').classList.toggle('large');
+  }
+
+  /* ── DRAG ── */
+  function dragStart(e, el) {
+    e.preventDefault();
+    let startX = e.clientX - el.offsetLeft;
+    let startY = e.clientY - el.offsetTop;
+
+    function onMove(e) {
+      el.style.left = (e.clientX - startX) + 'px';
+      el.style.top  = (e.clientY - startY) + 'px';
+      el.style.bottom = 'auto';
+      el.style.right  = 'auto';
+      el.style.position = 'fixed';
+    }
+
+    function onUp() {
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+    }
+
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  }
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+      co

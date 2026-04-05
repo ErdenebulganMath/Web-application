@@ -1,330 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
 <head>
   <meta charset="UTF-8">
-  <title>Classes</title>
+  <title>EduLearn – Хичээлүүд</title>
   <link rel="stylesheet" href="classes-css.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Fraunces:wght@700&display=swap" rel="stylesheet" />
 </head>
-
 <body>
 
 <div class="container">
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <div class="sidebar-logo">
-      <img src="images/logo.png" alt="Logo" />
+  <!-- ════════ SIDEBAR ════════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-top">
+      <div class="sb-logo link-text">EduLearn</div>
+      <button class="sb-toggle" id="toggleBtn" title="Sidebar нуух/харуулах">
+        <i class="fas fa-chevron-left" id="toggleIcon"></i>
+      </button>
     </div>
 
-    <h2>MAIN MENU</h2>
-    <ul>
-      <li><a href="main.html"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="classes.html"><i class="fas fa-chalkboard-teacher"></i> Classes</a></li>
-      <li><a href="materials.html"><i class="fas fa-folder-open"></i> Materials</a></li>
-      <li><a href="exams.html"><i class="fas fa-file-alt"></i> Exams</a></li>
-    </ul>
+    <div class="sb-label link-text">Үндсэн цэс</div>
+    <nav>
+      <ul>
+        <li><a href="main.html"        data-page="main.html">     <i class="fas fa-home"></i>               <span class="link-text">Нүүр</span></a></li>
+        <li><a href="classes.html"     data-page="classes.html">  <i class="fas fa-chalkboard-teacher"></i> <span class="link-text">Хичээлүүд</span></a></li>
+        <li><a href="materials.html"   data-page="materials.html"><i class="fas fa-folder-open"></i>         <span class="link-text">Материалууд</span></a></li>
+        <li><a href="exams.html"       data-page="exams.html">    <i class="fas fa-file-alt"></i>            <span class="link-text">Шалгалтууд</span></a></li>
+      </ul>
+    </nav>
 
-    <h2>ACCOUNT</h2>
-    <ul>
-      <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
-      <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
-    </ul>
+    <div class="sb-label link-text">Хаяг</div>
+    <nav>
+      <ul>
+        <li><a href="#"            data-page="profile">  <i class="fas fa-user"></i><span class="link-text">Профайл</span></a></li>
+        <li><a href="settings.html" data-page="settings.html"><i class="fas fa-cog"></i><span class="link-text">Тохиргоо</span></a></li>
+      </ul>
+    </nav>
 
-    <hr>
+    <hr class="sb-divider" />
+    <nav>
+      <ul>
+        <li class="sb-logout"><a href="#"><i class="fas fa-sign-out-alt"></i><span class="link-text">Гарах</span></a></li>
+      </ul>
+    </nav>
+  </aside>
 
-    <ul>
-      <li class="logout"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-    </ul>
-  </div>
-
-  <!-- Main Content -->
+  <!-- ════════ MAIN ════════ -->
   <div class="main">
 
-    <!-- Search bar -->
+    <!-- Header -->
     <div class="class-head">
       <h1>Browse All Classes</h1>
       <h2>Discover classes taught by expert instructors</h2>
-      <form class="class-search">
+      <form class="class-search" onsubmit="return false;">
         <input type="text" id="classSearch" placeholder="What class are you searching for?">
         <i class="fas fa-search"></i>
       </form>
     </div>
 
-    <!-- Filter & Category -->
+    <!-- Filters -->
     <div class="filter-container">
-      <!-- Category buttons -->
       <div class="category-group">
-        <button class="active">All</button>
-        <button>Алгебр</button>
-        <button>Геометр</button>
-        <button>Тригнометр</button>
-        <button>Арифметик</button>
-        <button>Комбинаторик</button>
-        <button>Тооны онол</button>
+        <button class="active" data-cat="all">All</button>
+        <button data-cat="Алгебр">Алгебр</button>
+        <button data-cat="Геометр">Геометр</button>
+        <button data-cat="Тригнометр">Тригнометр</button>
+        <button data-cat="Арифметик">Арифметик</button>
+        <button data-cat="Комбинаторик">Комбинаторик</button>
+        <button data-cat="Тооны онол">Тооны онол</button>
       </div>
 
-      <!-- Filters -->
-      <!-- Filters -->
-<div class="filter-group">
-  <select id="levelSelect">
-    <option>Бүх түвшин</option>
-    <option>Бага анги</option>
-    <option>Дунд анги</option>
-    <option>Ахлах анги</option>
-  </select>
-
-  <button class="filter-btn btn-all active">All</button>
-  <button class="filter-btn">Үнэгүй</button>   <!-- <- filter-btn нэмэгдсэн -->
-  <button class="filter-btn">Төлбөртэй</button>   <!-- <- filter-btn нэмэгдсэн -->
-
-  <select id="sortSelect">
-    <option>Шүүлтүүр</option>
-    <option>Сүүлд нэмэгдсэн</option>
-    <option>Алдартай</option>
-  </select>
-</div>
+      <div class="filter-group">
+        <select id="levelSelect">
+          <option>Бүх түвшин</option>
+          <option>Бага анги</option>
+          <option>Дунд анги</option>
+          <option>Ахлах анги</option>
+        </select>
+        <button class="filter-btn btn-all active" data-price="all">All</button>
+        <button class="filter-btn" data-price="free">Үнэгүй</button>
+        <button class="filter-btn" data-price="paid">Төлбөртэй</button>
+        <select id="sortSelect">
+          <option value="">Шүүлтүүр</option>
+          <option value="newest">Сүүлд нэмэгдсэн</option>
+          <option value="popular">Алдартай</option>
+        </select>
+      </div>
     </div>
 
-<span id="total_class">
-  Нийт <strong>5</strong> класс
-</span>
-    <!-- Classes Grid -->
-<div class="course-container">
+    <span id="total_class">Нийт <strong>0</strong> класс</span>
 
-  <!-- 1 -->
-  <div class="course-card" onclick="window.location.href='temp.html'">
-    <div class="course-image-wrapper">
-      <img src="images/algebry.jpg" class="course-image" />
-      <div class="rating">★ 4.9 <small>(1,248)</small></div>
-      <div class="tags"><span class="tag">Анхан</span><span class="tag">Алгебр</span></div>
-      <div class="price-badge">$49.99</div>
-    </div>
-    <h3 class="course-title">Анхан шатны Алгебр</h3>
-    <div class="instructor">
-      <img src="images/geometry.png" class="instructor-avatar" />
-      <span>Багш: С. Мөнх-Эрдэнэ</span>
-    </div>
-    <div class="course-info">
-      <i class="bi bi-journal-plus"> 31 хичээл</i>
-      <i class="bi bi-alarm"> 60 цаг</i>
-      <i class="bi bi-people-fill"> 34 сурагч</i>
-    </div>
-  </div>
+    <!-- Cards -->
+    <div class="course-container"></div>
 
-  <!-- 2 -->
-  <div class="course-card">
-    <div class="course-image-wrapper">
-      <img src="images/geometry.jpg" class="course-image" />
-      <div class="rating">★ 4.7 <small>(980)</small></div>
-      <div class="tags"><span class="tag">Дунд</span><span class="tag">Геометр</span></div>
-      <div class="price-badge">$39.99</div>
-    </div>
-    <h3 class="course-title">Геометрийн үндэс</h3>
-    <div class="instructor">
-      <img src="images/geometry.png" class="instructor-avatar" />
-      <span>Багш: Б. Оюунчимэг</span>
-    </div>
-    <div class="course-info">
-      <i class="bi bi-journal-plus"> 19 хичээл</i>
-      <i class="bi bi-alarm"> 37 цаг</i>
-      <i class="bi bi-people-fill"> 6 сурагч</i>
-    </div>
-  </div>
-
-  <!-- 3 -->
-  <div class="course-card">
-    <div class="course-image-wrapper">
-      <img src="images/c++.jpg" class="course-image" />
-      <div class="rating">★ 4.8 <small>(2,300)</small></div>
-      <div class="tags"><span class="tag">Анхан</span><span class="tag">Програмчлал</span></div>
-      <div class="price-badge">$59.99</div>
-    </div>
-    <h3 class="course-title">C++ програмчлалын эхлэл</h3>
-    <div class="instructor">
-      <img src="images/geometry.png" class="instructor-avatar" />
-      <span>Багш: Д. Тэмүүлэн</span>
-    </div>
-    <div class="course-info">
-      <i class="bi bi-journal-plus"> 27 хичээл</i>
-      <i class="bi bi-alarm"> 59 цаг</i>
-      <i class="bi bi-people-fill"> 18 сурагч</i>
-    </div>
-  </div>
-
-  <!-- 4 -->
-  <div class="course-card">
-    <div class="course-image-wrapper">
-      <img src="images/ux.jpg" class="course-image" />
-      <div class="rating">★ 4.6 <small>(870)</small></div>
-      <div class="tags"><span class="tag">Дунд</span><span class="tag">UI/UX</span></div>
-      <div class="price-badge">$44.99</div>
-    </div>
-    <h3 class="course-title">UI/UX дизайн</h3>
-    <div class="instructor">
-      <img src="images/geometry.png" class="instructor-avatar" />
-      <span>Багш: Н. Энхжин</span>
-    </div>
-    <div class="course-info">
-      <i class="bi bi-journal-plus"> 17 хичээл</i>
-      <i class="bi bi-alarm"> 34 цаг</i>
-      <i class="bi bi-people-fill"> 89 сурагч</i>
-    </div>
-  </div>
-
-  <!-- 5 -->
-  <div class="course-card">
-    <div class="course-image-wrapper">
-      <img src="images/data_analysis.jpg" class="course-image" />
-      <div class="rating">★ 4.9 <small>(1,560)</small></div>
-      <div class="tags"><span class="tag">Ахисан</span><span class="tag">Data Science</span></div>
-      <div class="price-badge">$69.99</div>
-    </div>
-    <h3 class="course-title">Өгөгдлийн шинжилгээ</h3>
-    <div class="instructor">
-      <img src="images/geometry.png" class="instructor-avatar" />
-      <span>Багш: Г. Баттулга</span>
-    </div>
-    <div class="course-info">
-      <i class="bi bi-journal-plus"> 20 хичээл</i>
-      <i class="bi bi-alarm"> 55 цаг</i>
-      <i class="bi bi-people-fill"> 76 сурагч</i>
-    </div>
-  </div>
-
-</div>
   </div>
 </div>
 
-<!-- JS -->
-<script>
-  // Category товчлууруудыг идэвхжүүлэх
-  const categoryButtons = document.querySelectorAll('.category-group button');
-  categoryButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      categoryButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      console.log('Selected Category:', btn.textContent);
-      filterCourses();
-    });
-  });
-
-  // Filter товчлууруудыг идэвхжүүлэх
-  const filterGroup = document.querySelector('.filter-group');
-  const filterButtons = filterGroup.querySelectorAll('.filter-btn');
-  const levelSelect = document.querySelector('#levelSelect');
-  const sortSelect = document.querySelector('#sortSelect');
-
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      console.log('Selected Filter:', btn.textContent);
-      filterCourses();
-    });
-  });
-
-  levelSelect.addEventListener('change', () => {
-    console.log('Level:', levelSelect.value);
-    filterCourses();
-  });
-
-  sortSelect.addEventListener('change', () => {
-    console.log('Sort:', sortSelect.value);
-    filterCourses();
-  });
-
-  function filterCourses() {
-    const selectedCategory = document.querySelector('.category-group button.active')?.textContent;
-    const selectedFilter = document.querySelector('.filter-group .filter-btn.active')?.textContent;
-    const selectedLevel = levelSelect.value;
-    const selectedSort = sortSelect.value;
-
-    console.log({
-      category: selectedCategory,
-      filter: selectedFilter,
-      level: selectedLevel,
-      sort: selectedSort
-    });
-
-    // TODO: course-г шүүх функц бичих
-  }
-</script>
-
-
-
+<!-- ════════ FOOTER ════════ -->
 <footer class="footer">
-    <div class="footer-container">
+  <div class="footer-container">
 
-        <!-- Left Section -->
-        <div class="footer-col">
-            <img src="images/logo.png" alt="logo">
-            <p>
-                Суралцагчидыг сайн багш нарын чанартай боловсрол, шууд хичээлүүд, харилцан идэвхтэй туршлагаар дэмжин чадавхжуулна.
-            </p>
-
-            <div class="socials">
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-twitter-x"></i>
-                <i class="bi bi-instagram"></i>
-                <i class="bi bi-youtube"></i>
-                <i class="bi bi-linkedin"></i>
-            </div>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="footer-col">
-            <h3>Quick Links</h3>
-            <ul>
-                <li>Browse Courses</li>
-                <li>Free Materials</li>
-                <li>Live Classes</li>
-                <li>Quizzes & Exams</li>
-                <li>Become a Teacher</li>
-                <li>About Us</li>
-            </ul>
-        </div>
-
-        <!-- Categories -->
-        <div class="footer-col">
-            <h3>Categories</h3>
-            <ul>
-                <li>Technology & Programming</li>
-                <li>Mathematics & Science</li>
-                <li>Language Learning</li>
-                <li>UI/UX Design</li>
-                <li>Data Science & AI</li>
-                <li>Music & Arts</li>
-            </ul>
-        </div>
-
-        <!-- Contact -->
-        <div class="footer-col">
-            <h3>Contact Us</h3>
-            <p>support@eduverse.com</p>
-            <p>+1 (555) 234-5678</p>
-            <p>123 Learning Ave, San Francisco, CA 94105</p>
-
-            <h4>Newsletter</h4>
-            <div class="newsletter">
-                <input type="email" placeholder="Enter your email">
-                <button>Join</button>
-            </div>
-        </div>
-
+    <div class="footer-col">
+      <img src="images/logo.png" alt="logo">
+      <p>Суралцагчидыг сайн багш нарын чанартай боловсрол, шууд хичээлүүд, харилцан идэвхтэй туршлагаар дэмжин чадавхжуулна.</p>
+      <div class="socials">
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-twitter-x"></i>
+        <i class="bi bi-instagram"></i>
+        <i class="bi bi-youtube"></i>
+        <i class="bi bi-linkedin"></i>
+      </div>
     </div>
 
-    <!-- Bottom -->
-    <div class="footer-bottom">
-        <p>© 2026 EduLearn. All rights reserved.</p>
-        <div class="links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Cookie Policy</a>
-        </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li>Browse Courses</li>
+        <li>Free Materials</li>
+        <li>Live Classes</li>
+        <li>Quizzes &amp; Exams</li>
+        <li>Become a Teacher</li>
+        <li>About Us</li>
+      </ul>
     </div>
+
+    <div class="footer-col">
+      <h3>Categories</h3>
+      <ul>
+        <li>Technology &amp; Programming</li>
+        <li>Mathematics &amp; Science</li>
+        <li>Language Learning</li>
+        <li>UI/UX Design</li>
+        <li>Data Science &amp; AI</li>
+        <li>Music &amp; Arts</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contact Us</h3>
+      <p>support@eduverse.com</p>
+      <p>+1 (555) 234-5678</p>
+      <p>Suhbaatar strict, Ulaanbaatar</p>
+      <h4>Newsletter</h4>
+      <div class="newsletter">
+        <input type="email" placeholder="Enter your email">
+        <button>Join</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 EduLearn. All rights reserved.</p>
+    <div class="links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
 </footer>
 
+<script src="classes.js"></script>
+<script>
+  /* ── Sidebar toggle ── */
+  const toggleBtn  = document.getElementById('toggleBtn');
+  const sidebar    = document.getElementById('sidebar');
+  const toggleIcon = document.getElementById('toggleIcon');
+
+  toggleBtn.addEventListener('click', () => {
+    const col = sidebar.classList.toggle('collapsed');
+    document.body.classList.toggle('sb-collapsed', col);
+    toggleIcon.className = col ? 'fas fa-chevron-right' : 'fas fa-chevron-left';
+  });
+
+  /* ── Active nav link (current page) ── */
+  const currentFile = location.pathname.split('/').pop() || location.href.split('/').pop().split('?')[0] || 'index.html';
+  document.querySelectorAll('.sidebar nav ul li a').forEach(link => {
+    const linkFile = link.getAttribute('href').split('/').pop().split('?')[0];
+    if (linkFile && linkFile === currentFile) {
+      link.closest('li').classList.add('active');
+    }
+  });
+
+  /* ── Category filter buttons ── */
+  document.querySelectorAll('.category-group button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.category-group button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  /* ── Price filter buttons ── */
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>
