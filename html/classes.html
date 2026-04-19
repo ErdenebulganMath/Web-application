@@ -2,29 +2,26 @@
 <html lang="mn">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EduLearn – Хичээлүүд</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/sidebar.css">
   <link rel="stylesheet" href="../css/classes.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Fraunces:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
 <div class="container">
-
   <div id="sidebar-container"></div>
 
-
   <div class="main">
-
     <!-- Header -->
     <div class="class-head">
-      <h1>Browse All Classes</h1>
-      <h2>Discover classes taught by expert instructors</h2>
+      <h1>Хичээлүүд үзэх</h1>
+      <h2>Мэргэжлийн багш нарын заасан хичээлүүдийг нээ</h2>
       <form class="class-search" onsubmit="return false;">
-        <input type="text" id="classSearch" placeholder="What class are you searching for?">
+        <input type="text" id="classSearch" placeholder="Ямар хичээл хайж байна вэ?">
         <i class="fas fa-search"></i>
       </form>
     </div>
@@ -32,7 +29,7 @@
     <!-- Filters -->
     <div class="filter-container">
       <div class="category-group">
-        <button class="active" data-cat="all">All</button>
+        <button class="active" data-cat="all">Бүгд</button>
         <button data-cat="Алгебр">Алгебр</button>
         <button data-cat="Геометр">Геометр</button>
         <button data-cat="Тригнометр">Тригнометр</button>
@@ -40,7 +37,6 @@
         <button data-cat="Комбинаторик">Комбинаторик</button>
         <button data-cat="Тооны онол">Тооны онол</button>
       </div>
-
       <div class="filter-group">
         <select id="levelSelect">
           <option>Бүх түвшин</option>
@@ -48,11 +44,11 @@
           <option>Дунд</option>
           <option>Ахисан</option>
         </select>
-        <button class="filter-btn btn-all active" data-price="all">All</button>
+        <button class="filter-btn btn-all active" data-price="all">Бүгд</button>
         <button class="filter-btn" data-price="free">Үнэгүй</button>
         <button class="filter-btn" data-price="paid">Төлбөртэй</button>
         <select id="sortSelect">
-          <option value="">Шүүлтүүр</option>
+          <option value="">Эрэмбэлэх</option>
           <option value="newest">Сүүлд нэмэгдсэн</option>
           <option value="popular">Алдартай</option>
         </select>
@@ -67,73 +63,62 @@
   </div>
 </div>
 
-<!-- ════════ FOOTER ════════ -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
-
     <div class="footer-col">
-      <img src="../images/logo.png" alt="logo">
+      <p style="font-size:20px;font-weight:800;color:#fff;margin-bottom:12px;">EduLearn</p>
       <p>Суралцагчидыг сайн багш нарын чанартай боловсрол, шууд хичээлүүд, харилцан идэвхтэй туршлагаар дэмжин чадавхжуулна.</p>
       <div class="socials">
-        <i class="bi bi-facebook"></i>
-        <i class="bi bi-twitter-x"></i>
-        <i class="bi bi-instagram"></i>
-        <i class="bi bi-youtube"></i>
-        <i class="bi bi-linkedin"></i>
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-linkedin-in"></i>
       </div>
     </div>
-
     <div class="footer-col">
-      <h3>Quick Links</h3>
+      <h3>Хурдан холбоос</h3>
       <ul>
-        <li>Browse Courses</li>
-        <li>Free Materials</li>
-        <li>Live Classes</li>
-        <li>Quizzes &amp; Exams</li>
-        <li>Become a Teacher</li>
-        <li>About Us</li>
+        <li>Хичээлүүд</li>
+        <li>Үнэгүй материал</li>
+        <li>Шалгалтууд</li>
+        <li>Профайл</li>
+        <li>Тухай</li>
       </ul>
     </div>
-
     <div class="footer-col">
-      <h3>Categories</h3>
+      <h3>Ангилал</h3>
       <ul>
-        <li>Technology &amp; Programming</li>
-        <li>Mathematics &amp; Science</li>
-        <li>Language Learning</li>
-        <li>UI/UX Design</li>
-        <li>Data Science &amp; AI</li>
-        <li>Music &amp; Arts</li>
+        <li>Алгебр</li>
+        <li>Геометр</li>
+        <li>Тригонометр</li>
+        <li>Комбинаторик</li>
+        <li>Тооны онол</li>
       </ul>
     </div>
-
     <div class="footer-col">
-      <h3>Contact Us</h3>
-      <p>support@eduverse.com</p>
-      <p>+1 (555) 234-5678</p>
-      <p>Suhbaatar strict, Ulaanbaatar</p>
-      <h4>Newsletter</h4>
+      <h3>Холбоо барих</h3>
+      <p>info@edulearn.mn</p>
+      <p>+976 9999-9999</p>
+      <p>Сүхбаатар дүүрэг, Улаанбаатар</p>
+      <h4>Мэдэгдэл авах</h4>
       <div class="newsletter">
-        <input type="email" placeholder="Enter your email">
-        <button>Join</button>
+        <input type="email" placeholder="Имэйл хаяг">
+        <button>Бүртгүүлэх</button>
       </div>
     </div>
-
   </div>
-
   <div class="footer-bottom">
-    <p>© 2026 EduLearn. All rights reserved.</p>
+    <p>© 2026 EduLearn. Бүх эрх хуулиар хамгаалагдсан.</p>
     <div class="links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Cookie Policy</a>
+      <a href="#">Нууцлалын бодлого</a>
+      <a href="#">Үйлчилгээний нөхцөл</a>
     </div>
   </div>
 </footer>
 
-
 <script src="../js/load.js"></script>
 <script src="../js/classes.js"></script>
-
 </body>
 </html>

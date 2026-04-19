@@ -52,8 +52,18 @@ function saveNotifications() { flashConfirm('notif-confirm'); }
 function saveAppearance()    { flashConfirm('app-confirm'); }
 
 function toggleDark(cb) {
-  document.body.style.filter = cb.checked ? 'invert(1) hue-rotate(180deg)' : '';
+  document.body.classList.toggle('dark', cb.checked);
+  localStorage.setItem('dark_mode', cb.checked ? '1' : '0');
 }
+
+// Apply saved dark mode on load
+(function() {
+  if (localStorage.getItem('dark_mode') === '1') {
+    document.body.classList.add('dark');
+    const cb = document.getElementById('dark-mode');
+    if (cb) cb.checked = true;
+  }
+})();
 
 function clearProgress() {
   if (!confirm('Дэвшлийн бүх өгөгдлийг устгах уу?')) return;

@@ -1,3 +1,6 @@
+// Apply dark mode before paint
+if (localStorage.getItem('dark_mode') === '1') document.body.classList.add('dark');
+
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById('sidebar-container');
   if (!container) return;
@@ -8,38 +11,94 @@ document.addEventListener("DOMContentLoaded", () => {
       return res.text();
     })
     .then(html => {
-      container.innerHTML = html;
+      // innerHTML-д script ажилладаггүй тул тусдаа оруулна
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = html;
+      // script тагуудыг устгаж, DOM-д оруулна
+      wrapper.querySelectorAll('script').forEach(s => s.remove());
+      container.appendChild(wrapper.firstElementChild);
+      // hamburger, overlay шууд append
+      while (wrapper.firstElementChild) container.appendChild(wrapper.firstElementChild);
 
-      // ── Active link автоматаар тодорхойлох ──
+      // ── User info (inline script-ийн оронд энд ажиллуулна) ──
+      const lastname  = sessionStorage.getItem('user_lastname')  || '';
+      const firstname = sessionStorage.getItem('user_firstname') || '';
+      const fullname  = sessionStorage.getItem('user_name') || (firstname ? firstname + ' ' + lastname : 'Хэрэглэгч');
+      const role      = sessionStorage.getItem('user_role') || 'student';
+      const school    = sessionStorage.getItem('user_school') || '';
+      const grade     = sessionStorage.getItem('user_grade')  || '';
+
+      const nameEl   = document.getElementById('sbUserName');
+      const roleEl   = document.getElementById('sbUserRole');
+      const avEl     = document.getElementById('sbAvatarLetter');
+      const schoolEl = document.getElementById('sbUserSchool');
+
+      if (nameEl) nameEl.textContent = fullname;
+      if (avEl)   avEl.textContent   = fullname.charAt(0).toUpperCase();
+      if (roleEl) {
+        if (role === 'teacher') {
+          roleEl.textContent = '🎓 Багш';
+          roleEl.style.color = '#6ee7b7';
+        } else {
+          const label = grade ? grade + (school ? ' · ' + school : '') : '📚 Сурагч';
+          roleEl.textContent = label;
+          roleEl.style.color = '#93c5fd';
+        }
+      }
+      if (schoolEl && school) schoolEl.textContent = school;
+
+      // Show teacher-only nav items
+      if (role === 'teacher') {
+        document.querySelectorAll('.teacher-only').forEach(el => el.style.display = '');
+        document.querySelectorAll('.student-only').forEach(el => el.style.display = 'none');
+      } else {
+        document.querySelectorAll('.teacher-only').forEach(el => el.style.display = 'none');
+      }
+
+      // ── Active link ──
       const currentPage = window.location.pathname.split('/').pop() || 'main.html';
-
-      document.querySelectorAll('.sidebar nav ul li').forEach(li => {
+      document.querySelectorAll('#sidebar nav ul li').forEach(li => {
         li.classList.remove('active');
         const a = li.querySelector('a');
         if (!a) return;
-        const hrefPage = a.getAttribute('href').split('/').pop();
-        if (hrefPage === currentPage) {
-          li.classList.add('active');
-        }
+        if (a.getAttribute('href').split('/').pop() === currentPage) li.classList.add('active');
       });
 
-      // ── Toggle ──
-      const sidebar    = document.getElementById('sidebar');
-      const toggleBtn  = document.getElementById('toggleBtn');
-      const toggleIcon = document.getElementById('toggleIcon');
+      // ── Sidebar toggle ──
+      const sidebar   = document.getElementById('sidebar');
+      const toggleBtn = document.getElementById('toggleBtn');
+      const toggleIcon= document.getElementById('toggleIcon');
+      const hamburger = document.getElementById('sbHamburger');
+      const overlay   = document.getElementById('sbOverlay');
+      const logoutBtn = document.getElementById('logoutBtn');
 
-      if (!sidebar || !toggleBtn) {
-        console.error('Sidebar элементүүд олдсонгүй');
-        return;
-      }
+      if (!sidebar || !toggleBtn) return;
 
       toggleBtn.addEventListener('click', () => {
         const collapsed = sidebar.classList.toggle('collapsed');
         document.body.classList.toggle('sb-collapsed', collapsed);
-        toggleIcon.className = collapsed
-          ? 'fas fa-chevron-right'
-          : 'fas fa-chevron-left';
+        toggleIcon.className = collapsed ? 'fas fa-chevron-right' : 'fas fa-chevron-left';
       });
+
+      if (hamburger) {
+        hamburger.addEventListener('click', () => {
+          sidebar.classList.add('mobile-open');
+          if (overlay) overlay.classList.add('show');
+        });
+      }
+      if (overlay) {
+        overlay.addEventListener('click', () => {
+          sidebar.classList.remove('mobile-open');
+          overlay.classList.remove('show');
+        });
+      }
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', e => {
+          e.preventDefault();
+          sessionStorage.clear();
+          window.location.href = '../html/login.html';
+        });
+      }
     })
     .catch(err => console.error('Sidebar алдаа:', err));
 });
